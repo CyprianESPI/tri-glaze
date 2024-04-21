@@ -1,7 +1,14 @@
+<header>
+  <mat-toolbar color="primary">
+    <span>{{title}}</span>
+  </mat-toolbar>
+</header>
 <main>
+  <h2>Ingredients</h2>
   @for(ingredient of ingredients; track ingredient){
   <app-ingredient-input [ingredient]="ingredient"></app-ingredient-input>
   }
+  <h2>Graph</h2>
 </main>
 
 <router-outlet></router-outlet>
