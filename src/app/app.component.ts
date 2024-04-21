@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { IngredientInputComponent } from './ingredient-input/ingredient-input.component';
 import { Ingredient } from './models/ingredient';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { GraphComponent } from './graph/graph.component';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     CommonModule,
     RouterOutlet,
     IngredientInputComponent,
+    GraphComponent,
     MatToolbarModule,
   ],
   templateUrl: './app.component.html',
