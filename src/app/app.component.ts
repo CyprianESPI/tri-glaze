@@ -9,9 +9,12 @@ import { Ingredient } from './models/ingredient';
   standalone: true,
   imports: [CommonModule, RouterOutlet, IngredientInputComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  ingredients: Ingredient[] = [{ name: "Barium carbonate", quantity: 100, unit: 'g' }, 
-  { name: "Barium carbonate", quantity: 100, unit: 'g' }, { name: "Barium carbonate", quantity: 100, unit: 'g' }];
+  ingredients: Ingredient[] = [
+    { name: 'Barium carbonate', quantity: 100, unit: 'g' },
+    { name: 'Barium carbonate', quantity: 100, unit: 'g' },
+    { name: 'Barium carbonate', quantity: 100, unit: 'g' },
+  ];
 }
