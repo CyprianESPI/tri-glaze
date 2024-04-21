@@ -14,7 +14,7 @@ import { Ingredient } from './models/ingredient';
 export class AppComponent {
   ingredients: Ingredient[] = [
     { name: 'Barium carbonate', quantity: 100, unit: 'g' },
-    { name: 'Barium carbonate', quantity: 100, unit: 'g' },
-    { name: 'Barium carbonate', quantity: 100, unit: 'g' },
+    { name: 'Red Iron Oxide', quantity: 50, unit: 'g' },
+    { name: 'Zircopax ', quantity: 750, unit: 'mg' },
   ];
 }
