@@ -37,9 +37,8 @@ export class GraphComponent implements AfterViewInit {
     this.ctx = this.graph.nativeElement.getContext('2d');
     console.log('ngAfterViewInit', this.ctx);
 
-    this.draw();
-    return;
     setInterval(() => {
+      this.resizeCanvas();
       this.draw();
     }, 1000 + 0 * 42);
   }

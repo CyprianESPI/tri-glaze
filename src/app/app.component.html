@@ -4,12 +4,16 @@
   </mat-toolbar>
 </header>
 <main>
-  <h2>Ingredients</h2>
-  @for(ingredient of ingredients; track ingredient){
-    <app-ingredient-input [ingredient]="ingredient"></app-ingredient-input>
-  }
-  <h2>Graph</h2>
-  <app-graph></app-graph>
+  <mat-tab-group id="tab-group" dynamicHeight>
+    <mat-tab label="Ingredients">
+      @for(ingredient of ingredients; track ingredient){
+        <app-ingredient-input [ingredient]="ingredient"></app-ingredient-input>
+      }
+    </mat-tab>
+    <mat-tab label="Graph">
+      <app-graph></app-graph>
+    </mat-tab>
+  </mat-tab-group>
 </main>
 
 <router-outlet class="hidden"></router-outlet>

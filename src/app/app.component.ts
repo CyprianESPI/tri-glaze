@@ -5,6 +5,7 @@ import { IngredientInputComponent } from './ingredient-input/ingredient-input.co
 import { Ingredient } from './models/ingredient';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { GraphComponent } from './graph/graph.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ import { GraphComponent } from './graph/graph.component';
     IngredientInputComponent,
     GraphComponent,
     MatToolbarModule,
+    MatTabsModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
