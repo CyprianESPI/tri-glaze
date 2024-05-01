@@ -1,9 +1,16 @@
 * {
-    border: 2px solid red;
+    //border: 2px solid red;
+}
+
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 main{
-    margin: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .hidden {

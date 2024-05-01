@@ -4,6 +4,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  HostListener,
   ViewChild,
 } from '@angular/core';
 
@@ -19,10 +20,25 @@ export class GraphComponent implements AfterViewInit {
   @ViewChild('graph') graph!: ElementRef<HTMLCanvasElement>;
   ctx: CanvasRenderingContext2D | null = null;
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    console.log('onResize', event);
+    this.resizeCanvas();
+    this.draw();
+  }
+
+  resizeCanvas() {
+    const canvas = this.graph.nativeElement;
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+
   ngAfterViewInit(): void {
     this.ctx = this.graph.nativeElement.getContext('2d');
     console.log('ngAfterViewInit', this.ctx);
 
+    this.draw();
+    return;
     setInterval(() => {
       this.draw();
     }, 1000 + 0 * 42);
@@ -35,16 +51,31 @@ export class GraphComponent implements AfterViewInit {
     if (!ctx) {
       return;
     }
-    ctx.canvas.width = window.innerWidth;
-    ctx.canvas.height = window.innerHeight;
+    const width = ctx.canvas.width;
+    const height = ctx.canvas.height;
 
     // Clear
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    ctx.clearRect(0, 0, width, height);
 
     //...drawing code...
-    console.log('draw', ctx);
-    ctx.fillRect(25, 25, 100, 100);
-    ctx.clearRect(45, 45, 60, 60);
-    ctx.strokeRect(50, 50, 50, 50);
+    console.log(`Draw: ${width}x${height}`, ctx);
+    ctx.fillRect(
+      width * 0.1,
+      height * 0.2,
+      width * (0.9 - 0.1),
+      height * (0.8 - 0.2)
+    );
+    ctx.clearRect(
+      width * 0.3,
+      height * 0.3,
+      width * (0.7 - 0.3),
+      height * (0.7 - 0.3)
+    );
+    ctx.strokeRect(
+      width * 0.4,
+      height * 0.4,
+      width * (0.6 - 0.4),
+      height * (0.6 - 0.4)
+    );
   }
 }
