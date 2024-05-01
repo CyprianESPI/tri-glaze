@@ -6,6 +6,7 @@ import { Ingredient } from './models/ingredient';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { GraphComponent } from './graph/graph.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { TableComponent } from './table/table.component';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     RouterOutlet,
     IngredientInputComponent,
     GraphComponent,
+    TableComponent,
     MatToolbarModule,
     MatTabsModule,
   ],
