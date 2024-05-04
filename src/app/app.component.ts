@@ -35,6 +35,7 @@ import { FlexGraphComponent } from './flex-graph/flex-graph.component';
 export class AppComponent {
   data: Db;
   dataPoints: DataPoint[] = [];
+  dataPointsRows: [DataPoint[]] = [[]];
   prevData: string = '';
   stepsValues: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   title: string = 'TriGlaze';
@@ -90,9 +91,23 @@ export class AppComponent {
     return res;
   }
 
+  isBreakIndex(dataPointId: number): boolean {
+    return [1, 3, 6, 10, 15, 21, 28, 36, 45, 55].some((e) => e === dataPointId);
+  }
+
   updateDataPoints(): void {
     console.info('updateDataPoints', this.data);
     this.prevData = JSON.stringify(this.data);
     this.dataPoints = this.getDataPoints(this.data);
+    const dataPointsRows: [DataPoint[]] = [[]];
+    let dataPointRow: DataPoint[] = [];
+    this.dataPoints.forEach((element) => {
+      dataPointRow.push(element);
+      if (this.isBreakIndex(element.id)) {
+        dataPointsRows.push(dataPointRow);
+        dataPointRow = [];
+      }
+    });
+    this.dataPointsRows = dataPointsRows;
   }
 }

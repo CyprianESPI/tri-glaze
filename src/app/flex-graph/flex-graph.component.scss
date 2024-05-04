@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  margin: 1rem;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+button {
+  margin: 0.1rem;
+}
