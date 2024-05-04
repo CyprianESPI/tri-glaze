@@ -29,7 +29,11 @@ interface DataPoint {
         {{ data().ingredients[0].name }}
       </th>
       <td mat-cell *matCellDef="let element">
-        {{ element.quantity + ' ' + element.unit }}
+        {{
+          (element.ingredients?.at(0).quantity ?? '') +
+            ' ' +
+            (element.ingredients?.at(0).unit ?? '')
+        }}
       </td>
     </ng-container>
 
@@ -38,7 +42,11 @@ interface DataPoint {
         {{ data().ingredients[1].name }}
       </th>
       <td mat-cell *matCellDef="let element">
-        {{ element.quantity + ' ' + element.unit }}
+        {{
+          (element.ingredients?.at(1).quantity ?? '') +
+            ' ' +
+            (element.ingredients?.at(1).unit ?? '')
+        }}
       </td>
     </ng-container>
 
@@ -47,19 +55,25 @@ interface DataPoint {
         {{ data().ingredients[2].name }}
       </th>
       <td mat-cell *matCellDef="let element">
-        {{ element.quantity + ' ' + element.unit }}
+        {{
+          (element.ingredients?.at(2).quantity ?? '') +
+            ' ' +
+            (element.ingredients?.at(2).unit ?? '')
+        }}
       </td>
     </ng-container>
 
     <!-- Table generation  -->
-    <tr mat-header-row *matHeaderRowDef="getDisplayedColumns()"></tr>
+    <tr
+      mat-header-row
+      *matHeaderRowDef="getDisplayedColumns(); sticky: true"
+    ></tr>
     <tr mat-row *matRowDef="let row; columns: getDisplayedColumns()"></tr>
   </table>`,
   styleUrl: './table.component.scss',
 })
 export class TableComponent {
   data = input.required<Db>();
-  displayedColumns: string[] = ['1', '2'];
 
   getDisplayedColumns(): string[] {
     if (!this.data) return ['Id'];
