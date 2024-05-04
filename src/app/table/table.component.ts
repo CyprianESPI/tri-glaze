@@ -1,10 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Ingredient } from '../models/ingredient';
 import { MatTableModule } from '@angular/material/table';
 
@@ -35,7 +30,6 @@ import { MatTableModule } from '@angular/material/table';
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>`,
   styleUrl: './table.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableComponent implements OnInit {
   ngOnInit(): void {
