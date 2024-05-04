@@ -2,7 +2,7 @@
   <mat-toolbar color="primary">
     <span>{{ title }}</span>
     <span class="spacer"></span>
-    <mat-form-field>
+    <mat-form-field subscriptSizing="dynamic">
       <mat-label>Steps</mat-label>
       <mat-select value="1">
         @for(step of steps; track step){
