@@ -92,7 +92,9 @@ export class AppComponent {
   }
 
   isBreakIndex(dataPointId: number): boolean {
-    return [1, 3, 6, 10, 15, 21, 28, 36, 45, 55].some((e) => e === dataPointId);
+    return [1, 3, 6, 10, 15, 21, 28, 36, 45, 55, 66].some(
+      (e) => e === dataPointId
+    );
   }
 
   updateDataPoints(): void {
