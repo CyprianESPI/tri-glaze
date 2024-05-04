@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { LocalStorageService } from './services/local-storage.service';
 import { Db } from './models/db';
 import { DataPoint } from './models/data-point';
+import { FlexGraphComponent } from './flex-graph/flex-graph.component';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,7 @@ import { DataPoint } from './models/data-point';
     IngredientInputComponent,
     GraphComponent,
     TableComponent,
+    FlexGraphComponent,
     MatToolbarModule,
     MatTabsModule,
     MatFormFieldModule,
