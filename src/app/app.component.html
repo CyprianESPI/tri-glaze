@@ -1,6 +1,17 @@
 <header>
   <mat-toolbar color="primary">
     <span>{{ title }}</span>
+    <span class="spacer"></span>
+    <mat-form-field>
+      <mat-label>Steps</mat-label>
+      <mat-select value="1">
+        @for(step of steps; track step){
+        <mat-option [value]="step.toString()">
+          {{ step }}
+        </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
   </mat-toolbar>
 </header>
 <main>
