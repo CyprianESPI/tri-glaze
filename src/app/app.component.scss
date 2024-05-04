@@ -5,14 +5,23 @@
 :host {
     display: flex;
     flex-direction: column;
-    justify-content: stretch;
     height: 100%;
+}
+
+header {
+    flex: 0;
+}
+
+main {
+    flex: 1;
+    overflow: hidden;
 }
 
 .hidden {
     display: none;
 }
 
-main {
+#tab-group {
+    overflow: hidden;
     height: 100%;
 }

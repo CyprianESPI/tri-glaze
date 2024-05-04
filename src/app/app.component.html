@@ -4,7 +4,7 @@
   </mat-toolbar>
 </header>
 <main>
-  <mat-tab-group id="tab-group" dynamicHeight>
+  <mat-tab-group id="tab-group" headerPosition="below">
     <mat-tab label="Ingredients">
       @for(ingredient of ingredients; track ingredient; let index = $index){
         <h3>N°{{index + 1}}</h3>
