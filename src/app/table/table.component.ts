@@ -97,9 +97,30 @@ export class TableComponent {
     for (let i = 0; i < steps + 1; i++) {
       for (let j = 0; j < i + 1; j++) {
         const prevId = res?.at(-1)?.id ?? 0;
+
+        const percentageA = (100 * (steps - i)) / steps;
+        const ingredientA: Ingredient = {
+          ...ingredients[0],
+          quantity: Math.floor((percentageA / 100) * ingredients[0].quantity),
+        };
+
+        const remainingPercentageAB = 100 - percentageA;
+        const percentageB =
+          i === 0 ? 0 : (((100 * (i - j)) / i) * remainingPercentageAB) / 100;
+        const ingredientB: Ingredient = {
+          ...ingredients[1],
+          quantity: Math.floor((percentageB / 100) * ingredients[1].quantity),
+        };
+
+        const percentageC = 100 - percentageB - percentageA;
+        const ingredientC: Ingredient = {
+          ...ingredients[2],
+          quantity: Math.floor((percentageC / 100) * ingredients[2].quantity),
+        };
+
         const datapoint: DataPoint = {
           id: prevId + 1,
-          ingredients: ingredients,
+          ingredients: [ingredientA, ingredientB, ingredientC],
         };
         res.push(datapoint);
       }
