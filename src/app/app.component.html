@@ -4,10 +4,10 @@
     <span class="spacer"></span>
     <mat-form-field subscriptSizing="dynamic">
       <mat-label>Steps</mat-label>
-      <mat-select value="1">
-        @for(step of steps; track step){
-        <mat-option [value]="step.toString()">
-          {{ step }}
+      <mat-select [(value)]="data.steps">
+        @for(stepsValue of stepsValues; track stepsValue){
+        <mat-option [value]="stepsValue">
+          {{ stepsValue }}
         </mat-option>
         }
       </mat-select>
@@ -17,7 +17,8 @@
 <main>
   <mat-tab-group id="tab-group" headerPosition="below">
     <mat-tab label="Ingredients">
-      @for(ingredient of ingredients; track ingredient; let index = $index){
+      @for(ingredient of data.ingredients; track ingredient; let index =
+      $index){
       <h3>N°{{ index + 1 }}</h3>
       <app-ingredient-input [ingredient]="ingredient"></app-ingredient-input>
       }
@@ -26,7 +27,7 @@
       <app-graph></app-graph>
     </mat-tab>
     <mat-tab label="Table">
-      <app-table [ingredients]="ingredients"></app-table>
+      <app-table [ingredients]="data.ingredients"></app-table>
     </mat-tab>
   </mat-tab-group>
 </main>
