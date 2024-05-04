@@ -17,9 +17,7 @@
 <main>
   <mat-tab-group id="tab-group" headerPosition="below">
     <mat-tab label="Ingredients">
-      @for(ingredient of data.ingredients; track ingredient; let index =
-      $index){
-      <h3>N°{{ index + 1 }}</h3>
+      @for(ingredient of data.ingredients; track ingredient;){
       <app-ingredient-input [ingredient]="ingredient"></app-ingredient-input>
       }
     </mat-tab>

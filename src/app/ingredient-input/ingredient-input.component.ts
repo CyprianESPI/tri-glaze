@@ -18,48 +18,56 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatButtonModule,
     MatIconModule,
   ],
-  template: `<mat-form-field>
-      <mat-label>Name</mat-label>
-      <input matInput type="text" [(ngModel)]="ingredient().name" />
-      @if (ingredient().name) {
-      <button
-        matSuffix
-        mat-icon-button
-        aria-label="Clear"
-        (click)="ingredient().name = ''"
-      >
-        <mat-icon>close</mat-icon>
-      </button>
-      }
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Quantity</mat-label>
-      <input matInput type="number" [(ngModel)]="ingredient().quantity" />
-      @if (ingredient().quantity) {
-      <button
-        matSuffix
-        mat-icon-button
-        aria-label="Clear"
-        (click)="ingredient().quantity = 0"
-      >
-        <mat-icon>close</mat-icon>
-      </button>
-      }
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Unit</mat-label>
-      <input matInput type="text" [(ngModel)]="ingredient().unit" />
-      @if (ingredient().unit) {
-      <button
-        matSuffix
-        mat-icon-button
-        aria-label="Clear"
-        (click)="ingredient().unit = ''"
-      >
-        <mat-icon>close</mat-icon>
-      </button>
-      }
-    </mat-form-field>`,
+  template: `
+    <section class="summary-container">
+      <h3>{{ ingredient().name }}</h3>
+      <p>{{ ingredient().quantity + ' ' + ingredient().unit }}</p>
+    </section>
+    <section class="edit-container">
+      <mat-form-field subscriptSizing="dynamic">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" [(ngModel)]="ingredient().name" />
+        @if (ingredient().name) {
+        <button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="ingredient().name = ''"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        }
+      </mat-form-field>
+      <mat-form-field subscriptSizing="dynamic">
+        <mat-label>Quantity</mat-label>
+        <input matInput type="number" [(ngModel)]="ingredient().quantity" />
+        @if (ingredient().quantity) {
+        <button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="ingredient().quantity = 0"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        }
+      </mat-form-field>
+      <mat-form-field subscriptSizing="dynamic">
+        <mat-label>Unit</mat-label>
+        <input matInput type="text" [(ngModel)]="ingredient().unit" />
+        @if (ingredient().unit) {
+        <button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="ingredient().unit = ''"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        }
+      </mat-form-field>
+    </section>
+  `,
   styleUrl: './ingredient-input.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
