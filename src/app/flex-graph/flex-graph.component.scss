@@ -18,3 +18,7 @@ section {
 button {
   margin: 0.1rem;
 }
+
+::ng-deep .mdc-tooltip {
+  white-space: pre-line !important;
+}
