@@ -13,6 +13,7 @@ import { LocalStorageService } from './services/local-storage.service';
 import { Db } from './models/db';
 import { DataPoint } from './models/data-point';
 import { FlexGraphComponent } from './flex-graph/flex-graph.component';
+import { MatIconModule } from '@angular/material/icon';
 
 interface StepsSelect {
   value: number;
@@ -33,6 +34,7 @@ interface StepsSelect {
     MatTabsModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatIconModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

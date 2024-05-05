@@ -16,15 +16,24 @@
 </header>
 <main>
   <mat-tab-group id="tab-group" headerPosition="below">
-    <mat-tab label="Ingredients">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>edit</mat-icon>
+      </ng-template>
       @for(ingredient of data.ingredients; track ingredient;){
       <app-ingredient-input [ingredient]="ingredient"></app-ingredient-input>
       }
     </mat-tab>
-    <mat-tab label="Graph">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>change_history</mat-icon>
+      </ng-template>
       <app-flex-graph [dataPointsRows]="dataPointsRows"></app-flex-graph>
     </mat-tab>
-    <mat-tab label="Table">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>table_chart</mat-icon>
+      </ng-template>
       <app-table [dataPoints]="dataPoints"></app-table>
     </mat-tab>
   </mat-tab-group>
