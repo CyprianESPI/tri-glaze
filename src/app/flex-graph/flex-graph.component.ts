@@ -12,7 +12,12 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     @for(dataPointRow of dataPointsRows(); track dataPointRow) {
     <section>
       @for(dataPoint of dataPointRow; track dataPoint) {
-      <button mat-mini-fab [matTooltip]="getToolTip(dataPoint)">
+      <button
+        mat-mini-fab
+        [matTooltip]="getToolTip(dataPoint)"
+        matTooltipClass="custom-tooltip"
+        matTooltipPosition="above"
+      >
         {{ dataPoint.id }}
       </button>
       }
@@ -26,8 +31,8 @@ export class FlexGraphComponent {
 
   getToolTip(dataPoint: DataPoint): string {
     const ingredientsTexts: string[] = dataPoint.ingredients.map(
-      (e) => `${e.name}: ${e.quantity}${e.unit}`
+      (e) => `${e.quantity}${e.unit} ${e.name}`
     );
-    return ingredientsTexts.join('\n');
+    return `Recipy N°${dataPoint.id}:\n` + ingredientsTexts.join('\n');
   }
 }

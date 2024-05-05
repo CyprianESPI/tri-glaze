@@ -22,3 +22,9 @@ button {
 ::ng-deep .mdc-tooltip {
   white-space: pre-line !important;
 }
+
+// This does not work somehow...
+.custom-tooltip {
+  //font-size: 60px !important;
+  //line-height: 60px !important;
+}
