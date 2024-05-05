@@ -3,11 +3,11 @@
     <span>{{ title }}</span>
     <span class="spacer"></span>
     <mat-form-field subscriptSizing="dynamic">
-      <mat-label>Steps</mat-label>
+      <mat-label>Recipies</mat-label>
       <mat-select [(value)]="data.steps">
-        @for(stepsValue of stepsValues; track stepsValue){
-        <mat-option [value]="stepsValue">
-          {{ stepsValue }}
+        @for(stepsSelect of stepsSelects; track stepsSelect){
+        <mat-option [value]="stepsSelect.value">
+          {{ stepsSelect.label }}
         </mat-option>
         }
       </mat-select>

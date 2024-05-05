@@ -14,6 +14,11 @@ import { Db } from './models/db';
 import { DataPoint } from './models/data-point';
 import { FlexGraphComponent } from './flex-graph/flex-graph.component';
 
+interface StepsSelect {
+  value: number;
+  label: string;
+}
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -37,7 +42,18 @@ export class AppComponent {
   dataPoints: DataPoint[] = [];
   dataPointsRows: [DataPoint[]] = [[]];
   prevData: string = '';
-  stepsValues: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  stepsSelects: StepsSelect[] = [
+    { value: 1, label: '3' },
+    { value: 2, label: '6' },
+    { value: 3, label: '10' },
+    { value: 4, label: '15' },
+    { value: 5, label: '21' },
+    { value: 6, label: '28' },
+    { value: 7, label: '36' },
+    { value: 8, label: '45' },
+    { value: 9, label: '55' },
+    { value: 10, label: '66' },
+  ];
   title: string = 'TriGlaze';
 
   constructor(_localStorageService: LocalStorageService) {
